@@ -73,7 +73,7 @@ public class Articles {
 
 
     public static Articles createJson(JsonObject articles) throws IOException{
-        logger.info("article createJson");
+        
         Articles a = new Articles();
 
         JsonString IdJs = articles.getJsonString("id");

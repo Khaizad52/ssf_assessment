@@ -42,8 +42,9 @@ public class Raw {
                 for(Object a : ar){
                     JsonObject articles = (JsonObject) a;
                     result.add(Articles.createJson(articles)); 
-                    logger.info("array read");   
+                       
                 }
+                logger.info("array read");
             }
             
         }

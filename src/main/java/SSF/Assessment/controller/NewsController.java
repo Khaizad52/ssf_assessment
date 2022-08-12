@@ -32,6 +32,7 @@ public class NewsController {
             return "raw";
         }
         List<Articles> art = Raw.getArticles();
+        
         //model.addAttribute("raw", raw);
         model.addAttribute("art", art);
         

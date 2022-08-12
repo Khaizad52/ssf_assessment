@@ -20,19 +20,19 @@
     </div>
     
     <article>
-        <li th:each="artt:*{art}">
-            <ul>ID: <span th:text="${artt.id}"></span></ul>
-            <ul>Published on: <span th:text="${artt.publishedOn"></span></ul>
-            <ul>Title: <span th:text="${artt.title}"></span></ul>
+        <ul th:each="artt:*{art}">
+            <li>ID: <span th:text="${artt.id}"></span></li>
+            <li>Published on: <span th:text="${artt.publishedOn"></span></li>
+            <li>Title: <span th:text="${artt.title}"></span></li>
             <a href="${artt.url}">Full news</a>
             <br>
             <img src="${artt.imageurl}" style="width:200px;height:200px">
-            <ul>Body: <span th:text="${artt.body}"></span></ul>
-            <ul>Tags: <span th:text="${artt.tags}"></span></ul>
-            <ul>Categories: <span th:text="${artt.categories}"></span></ul>
+            <li>Body: <span th:text="${artt.body}"></span></li>
+            <li>Tags: <span th:text="${artt.tags}"></span></li>
+            <li>Categories: <span th:text="${artt.categories}"></span></li>
             <input type="checkbox" id="${artt.id}">
 
-        </li>
+        </ul>
         <!--
         <div th:each="artt:*{art}">
             <p>ID: <span th:text="${artt.id}"></span></p>
