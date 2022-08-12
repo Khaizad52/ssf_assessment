@@ -3,6 +3,7 @@ package SSF.Assessment.model;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,8 +17,8 @@ import jakarta.json.JsonReader;
 public class Articles {
     public static final Logger logger = LoggerFactory.getLogger(Articles.class);
 
-    public String id;
-    public String published_on;
+    public int id;
+    public long published_on;
     public String title;
     public String url;
     public String imageurl;
@@ -26,16 +27,16 @@ public class Articles {
     public String categories;
 
 
-    public String getId() {
+    public int getId() {
         return id;
     }
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
-    public String getPublished_on() {
+    public long getPublished_on() {
         return published_on;
     }
-    public void setPublished_on(String published_on) {
+    public void setPublished_on(long published_on) {
         this.published_on = published_on;
     }
     public String getTitle() {
@@ -76,11 +77,11 @@ public class Articles {
     }
 
 
-    public static Articles createJson(String json) throws IOException{
+    public static Articles createJson(JsonObject articles) throws IOException{
         logger.info("article createJson");
         Articles a = new Articles();
 
-        try (InputStream is = new ByteArrayInputStream(json.getBytes())){
+        try (InputStream is = new ByteArrayInputStream(articles.getBytes())){
             JsonReader r = Json.createReader(is);
             JsonObject o = r.readObject();
             logger.info(o.toString());
