@@ -4,11 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <h1>Crypto News of the day</h1>
+    <title>Crypto News</title>
 </head>
     
 <body>
+    <div class="container">
+        <h1>Crypto News of the Day</h1>
+        <div class="row mt-5">
+            <div class="col">
+                <form method="GET" action="/">
+                    <button type="submit" class="btn btn-warning btn-lg"> Save </button>
+                </form>
+            </div>
+        </div>
+    </div>
     
+    <article>
+        <div th:each="articles:${articles}">
+            <p data-th-text="${articles.id}">news article id</p>
+            <p data-th-text="${articles.published_on">timestamp from the article</p>
+            <p data-th-text="${articles.title}"></p>
+            <a href="${articles.url}">Full news</a>
+            <br>
+            <img src="${articles.imageurl}" style="width:200px;height:200px">
+            <p data-th-text="${articles.body}">summary of the article</p>
+            <p data-th-text="${articles.tags}"></p>
+            <p data-th-text="${articles.categories}"></p>
+            <input type="checkbox" id="${articles.id}">
+        </div>
+    </article>
+
 </body>
 </html>

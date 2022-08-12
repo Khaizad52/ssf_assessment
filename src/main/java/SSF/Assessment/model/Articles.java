@@ -1,24 +1,19 @@
 package SSF.Assessment.model;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import jakarta.json.Json;
+import jakarta.json.JsonNumber;
 import jakarta.json.JsonObject;
-import jakarta.json.JsonReader;
-
-
+import jakarta.json.JsonString;
 
 public class Articles {
     public static final Logger logger = LoggerFactory.getLogger(Articles.class);
 
-    public int id;
-    public long published_on;
+    public String id;
+    public int publishedOn;
     public String title;
     public String url;
     public String imageurl;
@@ -27,17 +22,17 @@ public class Articles {
     public String categories;
 
 
-    public int getId() {
+    public String getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
-    public long getPublished_on() {
-        return published_on;
+    public int getPublished_on() {
+        return publishedOn;
     }
-    public void setPublished_on(long published_on) {
-        this.published_on = published_on;
+    public void setPublished_on(int published_on) {
+        this.publishedOn = published_on;
     }
     public String getTitle() {
         return title;
@@ -81,12 +76,23 @@ public class Articles {
         logger.info("article createJson");
         Articles a = new Articles();
 
-        try (InputStream is = new ByteArrayInputStream(articles.getBytes())){
-            JsonReader r = Json.createReader(is);
-            JsonObject o = r.readObject();
-            logger.info(o.toString());
-        }
+        JsonString IdJs = articles.getJsonString("id");
+        a.id = IdJs.getString();
+        JsonNumber PublishedOnJn = articles.getJsonNumber("published_on");
+        a.publishedOn = PublishedOnJn.intValue();
 
+        JsonString TitleJs = articles.getJsonString("title");
+        a.title = TitleJs.getString();
+        JsonString UrlJs = articles.getJsonString("url");
+        a.url = UrlJs.getString();
+        JsonString ImageUrlJs = articles.getJsonString("image url");
+        a.imageurl = ImageUrlJs.getString();
+        JsonString BodyJs = articles.getJsonString("body");
+        a.body = BodyJs.getString();
+        JsonString TagsJs = articles.getJsonString("tags");
+        a.tags = TagsJs.getString();
+        JsonString CategoriesJs = articles.getJsonString("categories");
+        a.categories = CategoriesJs.getString();
 
         return a;
     }

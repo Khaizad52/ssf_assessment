@@ -19,6 +19,14 @@ public class Raw {
 
     private static List<Articles> articles = new ArrayList<>();
 
+    public static List<Articles> getArticles() {
+        return articles;
+    }
+
+    public static void setArticles(List<Articles> articles) {
+        Raw.articles = articles;
+    }
+
     public static Raw createJson(String json) throws IOException{
         logger.info("raw data");
         Raw raw = new Raw();
