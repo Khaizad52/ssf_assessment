@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto News</title>
+</head>
+    
+<body>
+    <div class="container">
+        <h1 style="background-color:DodgerBlue;">Crypto News of the Day</h1>
+        <div class="row mt-5">
+            <div class="col">
+                <form method="GET" action="/">
+                    <button type="submit" class="btn btn-warning btn-lg"> Save </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <article>
+        <li th:each="artt:*{art}">
+            <ul>ID: <span th:text="${artt.id}"></span></ul>
+            <ul>Published on: <span th:text="${artt.publishedOn"></span></ul>
+            <ul>Title: <span th:text="${artt.title}"></span></ul>
+            <a href="${artt.url}">Full news</a>
+            <br>
+            <img src="${artt.imageurl}" style="width:200px;height:200px">
+            <ul>Body: <span th:text="${artt.body}"></span></ul>
+            <ul>Tags: <span th:text="${artt.tags}"></span></ul>
+            <ul>Categories: <span th:text="${artt.categories}"></span></ul>
+            <input type="checkbox" id="${artt.id}">
+
+        </li>
+        <!--
+        <div th:each="artt:*{art}">
+            <p>ID: <span th:text="${artt.id}"></span></p>
+            <p>Published on: <span th:text="${artt.published_on"></span></p>
+            <p>Title: <span th:text="${artt.title}"></span></p>
+            <a href="${artt.url}">Full news</a>
+            <br>
+            <img src="${artt.imageurl}" style="width:200px;height:200px">
+            <p>Body: <span th:text="${artt.body}"></span></p>
+            <p>Tags: <span th:text="${artt.tags}"></span></p>
+            <p>Categories: <span th:text="${artt.categories}"></span></p>
+            <input type="checkbox" id="${artt.id}">
+
+            
+            <p th:text="${artt.id}">news article id</p>
+            <p th:text="${artt.published_on">timestamp from the article</p>
+            <p th:text="${artt.title}"></p>
+            <a href="${artt.url}">Full news</a>
+            <br>
+            <img src="${artt.imageurl}" style="width:200px;height:200px">
+            <p th:text="${artt.body}">summary of the article</p>
+            <p th:text="${artt.tags}"></p>
+            <p th:text="${artt.categories}"></p>
+            <input type="checkbox" id="${artt.id}">
+            -->
+        </div>
+    </article>
+
+</body>
+</html>

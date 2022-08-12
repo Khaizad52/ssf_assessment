@@ -12,8 +12,11 @@ import SSF.Assessment.model.Articles;
 import SSF.Assessment.model.Raw;
 import SSF.Assessment.service.NewsService;
 
+import org.slf4j.*;
+
 @Controller
 public class NewsController {
+    private static final Logger logger = LoggerFactory.getLogger(NewsController.class);
     
     @Autowired
     private NewsService ns;
@@ -29,7 +32,7 @@ public class NewsController {
             return "raw";
         }
         List<Articles> art = Raw.getArticles();
-        model.addAttribute("raw", raw);
+        //model.addAttribute("raw", raw);
         model.addAttribute("art", art);
         
         return "index";

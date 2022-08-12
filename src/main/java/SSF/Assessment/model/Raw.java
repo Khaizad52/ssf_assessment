@@ -34,15 +34,18 @@ public class Raw {
         try(InputStream is = new ByteArrayInputStream(json.getBytes())){
             JsonReader r = Json.createReader(is);
             JsonObject o = r.readObject();
-            JsonArray ar = o.getJsonArray("Articles");
+            //logger.info(o.toString());
+            JsonArray ar = o.getJsonArray("Data");
 
             if(ar != null){
                 List<Articles> result = new ArrayList<>();
                 for(Object a : ar){
                     JsonObject articles = (JsonObject) a;
-                    result.add(Articles.createJson(articles));    
+                    result.add(Articles.createJson(articles)); 
+                    logger.info("array read");   
                 }
             }
+            
         }
 
         return raw;

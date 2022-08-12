@@ -85,7 +85,7 @@ public class Articles {
         a.title = TitleJs.getString();
         JsonString UrlJs = articles.getJsonString("url");
         a.url = UrlJs.getString();
-        JsonString ImageUrlJs = articles.getJsonString("image url");
+        JsonString ImageUrlJs = articles.getJsonString("imageurl");
         a.imageurl = ImageUrlJs.getString();
         JsonString BodyJs = articles.getJsonString("body");
         a.body = BodyJs.getString();

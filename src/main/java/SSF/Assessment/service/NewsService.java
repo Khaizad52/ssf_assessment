@@ -20,14 +20,14 @@ public class NewsService {
     private static String URL = "https://min-api.cryptocompare.com/data/v2/news/?lang=EN";
 
     public Optional<Raw> getArticles(){
-        String apiKey = System.getenv("OPENAI_API_KEY");
+        String apiKey = System.getenv("CRYPTO_API_KEY");
 
         RestTemplate template = new RestTemplate();
         ResponseEntity<String> response = null;
 
         try{
             HttpHeaders headers = new HttpHeaders();
-            headers.set("apikey", apiKey);
+            headers.set("Apikey", apiKey);
             HttpEntity req = new HttpEntity(headers);
             response = template.exchange(URL, HttpMethod.GET, req, String.class, 1);
             
